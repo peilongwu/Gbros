@@ -14,7 +14,7 @@
 
 ## 编程语言
 
-- 《head first Java》
+- 《Head First Java》
 - 《HTTP权威指南》
 - 《PHP与Mysql5程序涉及》第二版
 
