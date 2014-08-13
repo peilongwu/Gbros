@@ -7,4 +7,4 @@
 - 大力娃 [www.blueslue.com](http://www.blueslue.com/)
 - 黑水国 [www.heishuiguo.com](http://www.heishuiguo.com/)
 - 土豆娃 [www.tudouwa.com](http://www.tudouwa.com/)
-- i龙武 [www.ilongwu.com](http://www.ilongwu.com/)
+- 愛陇屋 [www.ilongwu.com](http://www.ilongwu.com/)
