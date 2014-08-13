@@ -44,9 +44,9 @@ exports.transfile = function(srcFilePath,goalFilePath){
 		exports.readyWrite(goalFilePath);
 		readable.on('readable', function(chunk) {
 			writable.open();
-			writable.write("\n");
+			writable.write("\n\r");
 			while (null !== (chunk = readable.read())) {
-				var array = chunk.split("\n");
+				var array = chunk.split("\n\r");
 				for(var i=0; i<array.length; i++){
 					exports.writeGoalFile(array[i]);
 				}
