@@ -1,0 +1,341 @@
+	说明：表名,主键名
+		 字段,类型,是否为空,默认值,字段说明。","为英文字符逗号
+		 
+补充设计系统文件数据表，用于存放一些用到的碎文件
+
+- 文件管理,文件主键
+	- 文件主键,key
+	- 对象主键,key,null
+	- 文件名称,lstr,null
+	- 文件对象,blob,null
+	- Md5Hash,lstr,null
+	- 文件大小,bigint,null
+	- 文件类型,lstr,null
+	- 创建时间,time,null
+	- 更新时间,time,null
+	- 创建者,key,null
+	- 文件状态,time,null
+	- 文件信息,text,null
+	
+补充设计系统用户操作日志表，用于捕获用户访问请求地址、浏览器信息等
+
+- Http请求,Http主键
+	- Http主键,key
+	- HttpUrl,text,null
+	- SessionId,lstr,null
+	- 用户主键,key,null
+	- 浏览器,lstr,null
+	- 浏览器版本,lstr,null
+	- 客户端代理,text,null
+	- Ip地址,lstr,null
+	- 操作系统,lstr,null
+	- 分辨率,lstr,null
+	- 请求类型,lstr,null
+	- 内容类型,lstr,null
+	- 是否Ajax,bool,null
+	- 请求时间,time,null
+	- 输出时间,time,null
+	- 设备类型,lstr,null
+	- Http头,text,null
+	- Cookie,text,null
+
+- 科目分类,分类主键
+	- 分类主键,key
+	- 分类编码,sstr
+	- 分类名称,sstr
+	- 父级主键,key,null
+	- 序号,int,null,0
+- 学员,学员主键
+	- 学员主键,key
+	- 学员编号,sstr
+	- 学员姓名,sstr
+	- 性别,sstr,null
+	- 出生日期,time,null
+	- 组织主键,key
+	- 身份证号码,sstr
+	- 工种,enum,null
+	- 级别,enum,null
+	- 职务,sstr,null
+	- 用户主键,key
+	- 创建时间,time,null
+- 培训师,培训师主键
+	- 培训师主键,key
+	- 培训师编号,sstr
+	- 培训师姓名,sstr
+	- 性别,sstr,null
+	- 出生日期,time,null
+	- 组织,key,null,,（组织）
+	- 用户主键,key,null
+	- 简介,text,null
+	- 创建时间,time,null
+- 教室,教室主键
+	- 教室主键,key
+	- 教室编码,sstr
+	- 教室名称,sstr
+	- 位置,lstr,null
+	- 序号,int,null
+	- 人数,int,null
+	- 创建时间,time,null
+	- 状态,enum,null,可用,（可用、维修、在用、关闭）
+- 宿舍,宿舍主键
+	- 宿舍主键,key
+	- 宿舍编码,sstr
+	- 宿舍名称,sstr
+	- 位置,lstr,null
+	- 序号,int,null
+	- 人数,int,null
+	- 创建时间,time,null
+	- 状态,enum,null,可用,（可用、维修、在用、关闭）
+- 题目类型,类型主键
+	- 类型主键,key
+	- 类型编码,sstr
+	- 类型名称,sstr
+	- 序号,int,null
+	- 创建时间,time,null
+- 题目,题目主键
+	- 题目主键,key
+	- 题目编号,sstr
+	- 类型主键,wordbook,null
+	- 题型,enum,null,,（判断题、选择题、填空题、简答题）
+	- 题目标题,text
+	- 题目选项,text,null
+	- 题目附件,file,null
+	- 分类主键,wordbook,null
+	- 难度系数,enum,null
+	- 出题次数,int,null,0
+	- 正确率,float,null
+	- 重要度,enum,null,,（1、2、3、4、5）
+	- 工种,enum,null
+	- 级别,enum,null,,（初、中、高）
+	- 评分标准,text,null
+	- 答案,text,null
+	- 默认分值,float,null
+	- 状态,enum,null,,（草稿、可用、停用、归档）
+	- 创建时间,time,null
+	- 创建人主键,key
+- 试卷,试卷主键
+	- 试卷主键,key
+	- 试卷编码,sstr
+	- 试卷名称,sstr
+	- 分类主键,wordbook,null
+	- 试卷描述,text,null
+	- 标签,lstr,null,,（关键字）
+	- 最小时长,float,null
+	- 最大时长,float,null
+	- 截止时间,time,null
+	- 是否随机组题,bool,null
+	- 是否随机排序,bool,null
+	- 难度系数,enum,null
+	- 总分,float,null
+	- 默认视图,enum,null
+	- 是否允许切换窗口,bool,null
+	- 状态,enum,null,,（草稿、可用、停用、归档）
+	- 创建时间,time,null
+	- 创建人主键,key
+- 试卷题目分组,分组主键
+	- 分组主键,key
+	- 分组名称,sstr
+	- 分组描述,text,null
+	- 分数,float,null
+	- 序号,int,null
+	- 创建时间,time,null
+- 试卷题目,试卷题目主键
+	- 试卷主键,wordbook
+	- 题目主键,wordbook
+	- 序号,int,null
+	- 是否必选,bool,null
+	- 分组主键,wordbook,null
+	- 分值,float,null
+- 课程类型,类型主键
+	- 类型主键,key
+	- 类型编码,sstr
+	- 类型名称,sstr
+	- 序号,int,null
+	- 创建时间,time,null
+- 课程,课程主键
+	- 课程主键,key
+	- 课程编码,sstr,null
+	- 课程名称,sstr
+	- 课程类型,enum
+	- 科目分类,wordbook
+	- 课程描述,text,null
+	- 标签,lstr,null,,（关键字）
+	- 学时,float,null
+	- 最短学习时间,float,null
+	- 状态,enum,null,,（草稿、可用、停用、归档）
+	- 创建时间,time,null
+	- 创建人主键,key
+- 课程资源,课程资源主键
+	- 课程资源主键,key
+	- 课程主键,key
+	- 资源标识,key
+	- 资源学时,float,null
+	- 序号,int,null
+	- 创建时间,time,null
+- 培训班,班级主键
+	- 班级主键,key
+	- 班级编码,sstr
+	- 班级名称,lstr
+	- 班级类型,enum
+	- 年份,sstr,null
+	- 计划开始时间,time,null
+	- 计划结束时间,time,null
+	- 最小人数,int,null
+	- 最大人数,int,null
+	- 培训时长,float,null
+	- 培训地址,text,null
+	- 联系人,sstr,null
+	- 联系方式,text,null
+	- 详细信息,text,null
+	- 创建时间,time,null
+	- 创建人主键,key
+	- 状态,enum,null,创建,（创建、可开班、开班、暂停、结束、完成）
+- 培训班课程,培训班课程主键
+	- 培训班课程主键,key
+	- 班级主键,wordbook
+	- 课程主键,wordbook
+	- 课时,float,null
+	- 教室,wordbook
+	- 培训师主键,wordbook
+	- 序号,int,null
+	- 创建时间,time,null
+	- 创建人主键,key
+- 培训班学员,培训班学员主键
+	- 培训班学员主键,key
+	- 班级主键,wordbook
+	- 学员主键,wordbook
+	- 报道时间,time,null
+	- 创建时间,time,null
+	- 创建人主键,key
+- 住宿,住宿主键
+	- 住宿主键,key
+	- 班级主键,wordbook
+	- 学员主键,wordbook
+	- 宿舍主键,wordbook
+	- 入住时间,time,null
+	- 天数,int,null
+	- 状态,enum,null,未入住,（未入住、已入住、已退房）
+	- 创建时间,time,null
+	- 创建人主键,key
+- 培训班考勤,考勤主键
+	- 考勤主键,key
+	- 班级主键,wordbook
+	- 学员主键,wordbook
+	- 考勤日期,time,null
+	- 状态,enum,null,实到,（请假、缺勤、实到）
+	- 创建时间,time,null
+	- 创建人主键,key
+- 培训日志,培训日志主键
+	- 培训日志主键,key
+	- 班级主键,wordbook
+	- 培训日期,time
+	- 培训描述,text,null
+	- 实到人数,int,null
+	- 当前进度,int
+	- 培训时长,float
+	- 状态,enum,null
+	- 创建时间,time,null
+	- 创建人主键,key
+- 课程学习,课程学习主键
+	- 课程学习主键,key
+	- 学员主键,wordbook
+	- 课程主键,wordbook
+	- 学时,float,null
+	- 进度,int,null
+	- 状态,enum,null,未开始,（未开始、开始、完成、结束）
+	- 创建时间,time,null
+	- 更新时间,time,null
+- 课程学习记录,课程学习记录主键
+	- 课程学习记录主键,key
+	- 学员主键,key
+	- 课程主键,key
+	- 学习日期,time,null
+	- 开始学习时间,time,null
+	- 最后学习时间,time,null
+	- 学习进度,int,null
+	- 创建时间,time,null
+	- 更新时间,time,null
+- 课程问题,课程问题主键
+	- 课程问题主键,key
+	- 学员主键,key
+	- 课程主键,key
+	- 创建时间,time
+	- 提问标题,text
+	- 提问内容,text,null
+	- 回答内容,text,null
+	- 培训师主键,key,null
+	- 回答时间,time,null
+	- 状态,enum,null,未解决,（未解决、已解决）
+- 考试类型,类型主键
+	- 类型主键,key
+	- 类型编码,sstr
+	- 类型名称,sstr
+	- 类型描述,text,null
+	- 序号,int,null
+	- 创建时间,time,null
+- 考试,考试主键
+	- 考试主键,key
+	- 考试编码,sstr
+	- 考试名称,sstr
+	- 年份,sstr,null
+	- 考试描述,text,null
+	- 评分人主键,key,null
+	- 考试开始时间,time,null
+	- 考试结束时间,time,null
+	- 次数,int,null
+	- 是否发放准考证,bool,null
+	- 准考证编码规则,lstr,null
+	- 是否报名,bool,null
+	- 是否审核报名,bool,null
+	- 考试地点,lstr,null
+	- 考试状态,enum,null,创建,（创建、未开始、开始、结束、评分、完成）
+	- 试卷主键,wordbook
+	- 创建时间,time,null
+	- 创建人主键,key
+- 考试报名,考试报名主键
+	- 考试报名主键,key
+	- 考试主键,wordbook
+	- 学员主键,key
+	- 组织主键,key,null
+	- 报名时间,time,null
+	- 状态,enum,null,报名,（报名、通过、未通过）
+	- 创建时间,time,null
+	- 创建人主键,key
+- 准考证,准考证主键
+	- 准考证主键,key
+	- 准考证编码,sstr
+	- 准考证名称,lstr
+	- 有效期,time
+	- 学员主键,key
+	- 考试主键,wordbook
+	- 状态,enum,null
+	- 创建时间,time,null
+	- 创建人主键,key
+- 考试记录,考试记录主键
+	- 考试记录主键,key
+	- 考试主键,key
+	- 学员主键,key
+	- 创建时间,time,null
+	- 更新时间,time,null
+	- 交卷方式,enum,null,自动交卷,（未交卷、自主交卷、自动交卷）
+- 答题记录,答题记录主键
+	- 答题记录主键,key
+	- 学员主键,key
+	- 考试主键,key
+	- 题目主键,key
+	- 答题时间,time,null
+	- 答案,text,null
+	- 分数,float,null
+	- 评分状态,enum,null,未评分,（已评分、未评分）
+	- 评分人主键,key,null
+	- 评分备注,text,null
+	- 创建时间,time,null
+- 考试成绩,考试成绩主键
+	- 考试成绩主键,key
+	- 考试主键,key
+	- 学员主键,key
+	- 分数,float,null
+	- 成绩状态,enum,null,未发布,（未发布、已发布）
+	- 统计时间,time,null
+	- 创建人主键,key
+	
