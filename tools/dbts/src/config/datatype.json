@@ -1,0 +1,50 @@
+//db data type map for our system meta type
+
+{
+	"mysql":{
+		"key":"char(32)",
+		"bool":"tinyint(1)",
+		"enum":"char(10)",
+		"sstr":"varchar(32)",
+		"lstr":"varchar(256)",
+		"text":"text",
+		"int":"int(11)",
+		"long":"bigint(20)",
+		"float":"float",
+		"double":"double",
+		"time":"bigint(20)",
+		"file":"blob",
+		"wordbook":"char(32)"
+	},
+	"sqlserver":{
+		"key":"char(32)",
+		"bool":"bit",
+		"enum":"char(10)",
+		"sstr":"varchar(32)",
+		"lstr":"varchar(256)",
+		"text":"text",
+		"int":"int(11)",
+		"long":"bigint",
+		"float":"float",
+		"double":"double",
+		"time":"bigint",
+		"file":"blob",
+		"wordbook":"char(32)"
+	},
+	"oracle":{
+		"key":"char(32)",
+		"bool":"tinyint(1)",
+		"enum":"char(10)",
+		"sstr":"varchar(32)",
+		"lstr":"varchar(256)",
+		"text":"text",
+		"int":"int(11)",
+		"long":"bigint(20)",
+		"float":"float",
+		"double":"double",
+		"time":"bigint(20)",
+		"file":"blob",
+		"wordbook":"char(32)"
+	}
+
+}

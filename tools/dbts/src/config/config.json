@@ -1,0 +1,9 @@
+{
+	"goal_conf":{
+		"attr_src":true,
+		"attr_goal":true,
+		"is_null":true,
+		"def":true,
+		"explain":true
+	}
+}
