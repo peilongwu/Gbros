@@ -44,9 +44,9 @@ exports.transfile = function(srcFilePath,goalFilePath){
 		exports.readyWrite(goalFilePath);
 		readable.on('readable', function(chunk) {
 			writable.open();
-			writable.write("\n\t");
+			writable.write("\n\r");
 			while (null !== (chunk = readable.read())) {
-				var array = chunk.split("\n\t");
+				var array = chunk.split("\n");
 				for(var i=0; i<array.length; i++){
 					exports.writeGoalFile(array[i]);
 				}
@@ -60,18 +60,17 @@ exports.transfile = function(srcFilePath,goalFilePath){
 
 exports.writeGoalFile = function(field){
 	if(field.trim() !== ""){
+		field = field.replace(/\t/g,"    ");
 		var transField = "";
 		var location = field.indexOf(",") < 0 ? field.length : field.indexOf(",");
 		if(field.indexOf("- ") === 0){
 			transField = field.substring(0,location) + "(" + trans.getTrans(field.substring(2,location)) + ")" ;
-			//transField = "----" + trans.getTrans(field.substring(2,location));
 			writable.write(transField + field.substring(location,field.length));
-			writable.write("\n\t");
-		}else if(field.indexOf("\t- ") === 0){
-			transField = field.substring(0,location) + "(" + trans.getTrans(field.substring(3,location)) + ")" ;
-			//transField = trans.getTrans(field.substring(3,location)) + "\t" + field.substring(3,location);
+			writable.write("\r");
+		}else if(field.indexOf("    - ") === 0){
+			transField = field.substring(0,location) + "(" + trans.getTrans(field.substring(6,location)) + ")" ;
 			writable.write(transField + field.substring(location,field.length));
-			writable.write("\n\t");
+			writable.write("\r");
 		}else{
 			writable.write(field);
 		}
