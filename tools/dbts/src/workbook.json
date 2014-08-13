@@ -219,6 +219,9 @@
 	"型号":"model",
 	"额定":"rated",
 	"维修":"maintenance",
+	"数量":"num",
+	"敏感":"sensitive",
+	"区域":"area",
 	"A5":"a5",
 	"头":"head",
 	"期":"period",
@@ -231,5 +234,6 @@
 	"型":"type",
 	"塔":"tower",
 	"罐":"tank",
-	"泵":"pump"
+	"泵":"pump",
+	"号":"num"
 }
