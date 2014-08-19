@@ -43,6 +43,8 @@
 	"轻烃量":"NGL",
 	"负责人":"principal",
 	"膨胀节":"expansion_joint",
+	"采纳":"adopt",
+	"追加":"append",
 	"代理":"agent",
 	"主键":"id",
 	"标识":"id",
